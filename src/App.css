@@ -2,14 +2,4 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* text-align: center; */
 }
-
-
-/* .App-footer {
-  background-color: #20589d;
-  position: absolute;
-  bottom: 0;
-  width: 100%; 
-  color: rgb(255, 255, 255);
-}  */
