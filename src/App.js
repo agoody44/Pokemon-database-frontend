@@ -12,7 +12,7 @@ import DashBoardPage from './pages/DashBoardPage';
 
 import { getUser, logout } from './services/userService';
 
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
 
 
 import './App.css';
@@ -43,7 +43,10 @@ function App(props) {
             <HomePage />
           }/>
            <Route exact path="/dashboard" render={ props => 
+           getUser() ?
             <DashBoardPage />
+            :
+            <Redirect to='/login' />
           }/>
           <Route exact path="/signup" render={ props => 
            <SignUpPage handleSignupOrLogin={handleSignupOrLogin} />
