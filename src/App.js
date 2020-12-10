@@ -1,14 +1,17 @@
-import { useState } from 'react'
+import {getCards} from './services/hearthstone-api';
+import { useState, useEffect } from 'react'
 
 
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
-
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import DashBoardPage from './pages/DashBoardPage';
+import CardsPage from './pages/CardsPage';
+
+
 
 import { getUser, logout } from './services/userService';
 
@@ -18,9 +21,29 @@ import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
 import './App.css';
 
 
+
 function App(props) {
 
   const [ userState, setUserState ] = useState({ user: getUser() });
+
+
+  const [cardsData, setCardsData] = useState ({
+    results: [],
+  });
+
+  async function getAppData() {
+    const data = await getCards();
+    // console.log(data);
+    setCardsData(data);
+    // console.log(cardsData);
+  };
+
+  useEffect(() => {
+    getAppData();
+    console.log('effect');
+  }, []);
+
+
 
 
   /* helper functions */
@@ -42,6 +65,11 @@ function App(props) {
         <Route exact path="/" render={ props => 
             <HomePage />
           }/>
+          <Route exact path="/cards" render={ props => 
+          {cardsData.results.map((result, i) =>
+            <CardsPage key={i} result={result}/>
+            )}
+          }/>
            <Route exact path="/dashboard" render={ props => 
            getUser() ?
             <DashBoardPage />
@@ -54,6 +82,7 @@ function App(props) {
           <Route exact path="/login" render={ props => 
             <LoginPage handleSignupOrLogin={handleSignupOrLogin} />
           }/>
+          
         </Switch>
       <Footer />
 
