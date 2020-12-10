@@ -1,4 +1,4 @@
-import {getCards} from './services/hearthstone-api';
+import {getCardsData} from './services/hearthstone-api';
 import { useState, useEffect } from 'react'
 
 
@@ -28,14 +28,17 @@ function App(props) {
 
 
   const [cardsData, setCardsData] = useState ({
-    results: [],
+    patch: "19.0.0.66927",
+    classes: [],
+    sets: [],
+    factions: [],
   });
 
   async function getAppData() {
-    const data = await getCards();
-    // console.log(data);
+    const data = await getCardsData();
+    console.log(data);
     setCardsData(data);
-    // console.log(cardsData);
+    console.log(cardsData);
   };
 
   useEffect(() => {
@@ -66,7 +69,7 @@ function App(props) {
             <HomePage />
           }/>
           <Route exact path="/cards" render={ props => 
-          {cardsData.results.map((result, i) =>
+          {cardsData.classes.map((result, i) =>
             <CardsPage key={i} result={result}/>
             )}
           }/>

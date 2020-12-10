@@ -1,4 +1,4 @@
-export function getCards() {
+export function getCardsData() {
     return fetch("https://omgvamp-hearthstone-v1.p.rapidapi.com/info", {
         "method": "GET",
         "headers": {
