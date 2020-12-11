@@ -6,8 +6,9 @@ export function getCardsData() {
             "x-rapidapi-host": "omgvamp-hearthstone-v1.p.rapidapi.com"
         }
     })
+    
     .then(res => res.json())
-    .then(data => console.log(data))
+    // .then(data => console.log(data))
     .catch(err => {
         console.error(err);
 })}

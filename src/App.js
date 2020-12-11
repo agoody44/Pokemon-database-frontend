@@ -28,17 +28,15 @@ function App(props) {
 
 
   const [cardsData, setCardsData] = useState ({
-    patch: "19.0.0.66927",
-    classes: [],
-    sets: [],
-    factions: [],
+   classes: [],
+   results: []
   });
 
   async function getAppData() {
     const data = await getCardsData();
     console.log(data);
     setCardsData(data);
-    console.log(cardsData);
+    // console.log(cardsData);
   };
 
   useEffect(() => {
@@ -47,6 +45,8 @@ function App(props) {
   }, []);
 
 
+  // console.log('this is line 50' + cardsData.results)
+  // if (cardsData.results != null) {
 
 
   /* helper functions */
@@ -69,7 +69,7 @@ function App(props) {
             <HomePage />
           }/>
           <Route exact path="/cards" render={ props => 
-          {cardsData.classes.map((result, i) =>
+          {cardsData.results && cardsData.results.map((result, i) =>
             <CardsPage key={i} result={result}/>
             )}
           }/>
@@ -91,6 +91,9 @@ function App(props) {
 
     </div>
   );
+// } else {
+//   return <h1>app</h1>
+// }
 }
 
 export default withRouter(App);
