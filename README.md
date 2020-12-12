@@ -13,12 +13,12 @@ A simple Pokemon database
 -NodeJs
 -React
 -Pokemon Api
--bcrypt
--cors
--dotenv
--jsonwebtoken
--mongoose
--morgan
+-Bcrypt
+-Cors
+-Dotenv
+-Jsonwebtoken
+-Mongoose
+-Morgan
 
 ## Screenshots
 ![wireframe1](imgs/Pokemon-homepage.png)
