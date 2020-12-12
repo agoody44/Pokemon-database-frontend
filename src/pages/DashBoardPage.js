@@ -8,7 +8,7 @@ export default function DashBoardPage (props) {
             <option value="1">Pika</option>
             <option value="2">Charmander</option>
             <option value="3">Squirtle</option>
-</select>
+            </select>
 
         </main>
     )
