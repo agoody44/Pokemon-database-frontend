@@ -29,12 +29,15 @@ function App(props) {
 
 
   const [cardsData, setCardsData] = useState ({
+   count : 20,
+   next: "https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20",
+   previous: '',
    results: []
   });
 
   async function getAppData() {
     const data = await getCardsData();
-    // console.log(data);
+    console.log(data);
     setCardsData(data);
     // console.log(cardsData);
   };
@@ -82,7 +85,7 @@ function App(props) {
           }/>
           <Route exact path="/cards" render={props =>
           <CardsPage results={cardsData.results}/>
-          } />
+        } />
            <Route exact path="/dashboard" render={ props => 
            getUser() ?
             <DashBoardPage />
