@@ -2,7 +2,6 @@
 // import { useState } from 'react'
 
 
-
 export default function CardsPage (props) {
   // console.log(props)
 
@@ -15,12 +14,15 @@ export default function CardsPage (props) {
             <ul className='cards'>
               
                 {props.results && props.results.map((result, idx) => {
-                  console.log(result)
+                  console.log(result.url)
+                  
                   return (
+                    <li>
+                      {props.result}
+                    </li>,
                   <li className='cardsLi'key={idx}>
                     { result.name.toLowerCase().split(' ').map (letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ') }
                     <br/>
-                    {/* <img src={result.url.sprites.front_default} alt='img' /> */}
                   </li> 
                   )
                 })}

@@ -11,6 +11,7 @@ import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import DashBoardPage from './pages/DashBoardPage';
 import CardsPage from './pages/CardsPage';
+// import CardsPic from './pages/CardsPic';
 
 
 
@@ -29,7 +30,7 @@ function App(props) {
 
 
   const [cardsData, setCardsData] = useState ({
-   count : 20,
+   count : '',
    next: "https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20",
    previous: '',
    results: []
@@ -86,6 +87,9 @@ function App(props) {
           <Route exact path="/cards" render={props =>
           <CardsPage results={cardsData.results}/>
         } />
+        {/* <Route exact path="/cardsP" render={props =>
+          <CardsPic results={cardsData.results}/>
+        } /> */}
            <Route exact path="/dashboard" render={ props => 
            getUser() ?
             <DashBoardPage />
