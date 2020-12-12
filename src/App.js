@@ -2,6 +2,7 @@ import {getCardsData} from './services/hearthstone-api';
 import { useState, useEffect } from 'react'
 
 
+
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
@@ -28,13 +29,12 @@ function App(props) {
 
 
   const [cardsData, setCardsData] = useState ({
-   classes: [],
    results: []
   });
 
   async function getAppData() {
     const data = await getCardsData();
-    console.log(data);
+    // console.log(data);
     setCardsData(data);
     // console.log(cardsData);
   };
@@ -45,8 +45,6 @@ function App(props) {
   }, []);
 
 
-  // console.log('this is line 50' + cardsData.results)
-  // if (cardsData.results != null) {
 
 
   /* helper functions */
@@ -64,15 +62,27 @@ function App(props) {
   return (
     <div className="App">
       <Header user={userState.user} handleLogout={handleLogout} />
+      
+ 
+       {/* <CardsPage />
+          {cardsData.results && cardsData.results.map((result, idx) =>
+          <CardsPage key={idx} result={result}/>
+          )}  */}
+
+      {/* <Route exact path="/cards" render={ props => 
+          <CardsPage />
+          }/>
+          {cardsData.results && cardsData.results.map((result, idx) =>
+          <CardsPage key={idx} result={result}/>
+          )} */}
+
         <Switch>
         <Route exact path="/" render={ props => 
             <HomePage />
           }/>
-          <Route exact path="/cards" render={ props => 
-          {cardsData.results && cardsData.results.map((result, i) =>
-            <CardsPage key={i} result={result}/>
-            )}
-          }/>
+          <Route exact path="/cards" render={props =>
+          <CardsPage results={cardsData.results}/>
+          } />
            <Route exact path="/dashboard" render={ props => 
            getUser() ?
             <DashBoardPage />
@@ -85,15 +95,12 @@ function App(props) {
           <Route exact path="/login" render={ props => 
             <LoginPage handleSignupOrLogin={handleSignupOrLogin} />
           }/>
-          
         </Switch>
       <Footer />
-
     </div>
+
+    
   );
-// } else {
-//   return <h1>app</h1>
-// }
 }
 
 export default withRouter(App);

@@ -1,6 +1,6 @@
 import './Header.css';
 import { Link } from "react-router-dom";
-// import hearthstone from './Header/hearthstone.png';
+import hearthstone from './hearthstone.png';
 
 
 
@@ -8,8 +8,8 @@ export default function Header (props) {
     return (
    <header className="Header">
        <Link to='/'>
-            <h1>Hearthstone</h1>
-            {/* <img src={hearthstone} height={100} width={100} alt='hs' />; */}
+            {/* <h1>Hearthstone</h1> */}
+            <img src={hearthstone} height={80} width={80} alt='hs' />
        </Link>
        <nav>
             <ul className='NavLinks'>

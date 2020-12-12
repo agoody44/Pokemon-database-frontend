@@ -26,3 +26,19 @@ code {
 .Page > h1 {
   margin-bottom: 50px;
 } 
+
+
+ul {
+  list-style-type: none;
+  
+}
+
+.cardsLi {
+  border: 3px solid rgb(0, 0, 0);
+  background-color: #f4f4f4;
+  color: blue;
+  padding: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  border-radius: 10px;
+}
