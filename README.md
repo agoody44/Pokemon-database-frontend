@@ -10,6 +10,15 @@ A simple Pokemon database
 -Bootstrap
 -MongoDB
 -Express
+-NodeJs
+-React
+-Pokemon Api
+-bcrypt
+-cors
+-dotenv
+-jsonwebtoken
+-mongoose
+-morgan
 
 ## Screenshots
 ![wireframe1](imgs/Pokemon-homepage.png)
