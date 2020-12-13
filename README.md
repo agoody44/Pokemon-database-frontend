@@ -26,7 +26,7 @@ A simple Pokemon database
 ![wireframe3](imgs/Pokemon-signup-page.png)
 ![wireframe4](imgs/Pokemon-loginpage.png)
 
-![ERD](!)
+![ERD](imgs/ERD.png)
 
 ## Getting Started
 

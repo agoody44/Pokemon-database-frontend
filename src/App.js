@@ -31,14 +31,18 @@ function App(props) {
 
   const [cardsData, setCardsData] = useState ({
    count : '',
-   next: "https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20",
+   next: "",
    previous: '',
-   results: []
+   results: [],
+   url: '',
+   sprites: {
+     front_default: ''
+   }
   });
 
   async function getAppData() {
     const data = await getCardsData();
-    console.log(data);
+    // console.log(data);
     setCardsData(data);
     // console.log(cardsData);
   };
