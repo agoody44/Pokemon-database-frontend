@@ -1,4 +1,4 @@
-import {getCardsData} from './services/hearthstone-api';
+import {getPokemonData} from './services/pokemon-api';
 import { useState, useEffect } from 'react'
 
 
@@ -29,7 +29,7 @@ function App(props) {
   const [ userState, setUserState ] = useState({ user: getUser() });
 
 
-  const [cardsData, setCardsData] = useState ({
+  const [pokemonData, setPokemonData] = useState ({
    count : '',
    next: "",
    previous: '',
@@ -41,9 +41,9 @@ function App(props) {
   });
 
   async function getAppData() {
-    const data = await getCardsData();
+    const data = await getPokemonData();
     // console.log(data);
-    setCardsData(data);
+    setPokemonData(data);
     // console.log(cardsData);
   };
 
@@ -89,7 +89,7 @@ function App(props) {
             <HomePage />
           }/>
           <Route exact path="/cards" render={props =>
-          <CardsPage results={cardsData.results}/>
+          <CardsPage results={pokemonData.results}/>
         } />
         {/* <Route exact path="/cardsP" render={props =>
           <CardsPic results={cardsData.results}/>

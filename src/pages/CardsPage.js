@@ -22,29 +22,42 @@ export default function CardsPage (props) {
                   <li className='cardsLi'key={idx}>
                     { result.name.toLowerCase().split(' ').map (letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ') }
                     <br/>
-                  </li> 
+                  </li>
                   )
-                })}
+                })
+                }
+              </ul>
+               
+               {/* {props.results.url && props.results.url.map((url, idx) => {
+                  console.log(url)
+                  return (
+                    <ul>
+                      <li>
+                            {url.sprites}
+                      </li>
+                    </ul>
+                  )
+               })
+              } */}
 
-            </ul>
 
           </main>
       </main>
 )}
 
-{/* 
-                {props.url && props.url.map((url, idx) => {
-                  console.log(url)
-                  return (
-                    <li>
-                          {url.sprites}
-                    </li>
-                  )
+// {/* 
+//                 {props.url && props.url.map((url, idx) => {
+//                   console.log(url)
+//                   return (
+//                     <li>
+//                           {url.sprites}
+//                     </li>
+//                   )
 
                   
-                })} */}
+//                 })} */}
 
 
 
-{/* <img src={result?.url?.sprites?.front_default} alt="" /> */}
+// {/* <img src={result?.url?.sprites?.front_default} alt="" /> */}
 
