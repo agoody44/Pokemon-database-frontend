@@ -1,22 +1,28 @@
 // import HearthstoneClasses from './HearthstoneClasses.jpg';
 // import { useState } from 'react'
+import pikachu from './pikachu.gif'
 
 
 export default function CardsPage (props) {
   // console.log(props)
 
 
+
   return (
     <main className='Page'>
-        <h1>CardsPage</h1>
+
+          <img src={pikachu} height={100} width={100} alt='hs' />
+          <br/>
           <main className='Page'>
 
             <ul className='cards'>
               
                 {props.results && props.results.map((result, idx) => {
-                  console.log(result)
+                  // console.log(result.url)
                   
                   return (
+
+                   
               
 
                   <li className='cardsLi'key={idx}>

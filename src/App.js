@@ -14,7 +14,6 @@ import CardsPage from './pages/CardsPage';
 // import CardsPic from './pages/CardsPic';
 
 
-
 import { getUser, logout } from './services/userService';
 
 import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
@@ -39,10 +38,18 @@ function App(props) {
      front_default: ''
    }
   });
+  // const pokemonIds = [1,2,3]
+
 
   async function getAppData() {
     const data = await getPokemonData();
-    // console.log(data);
+    // const data = pokemonIds.map((id) => {
+    //   return fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
+    //   .then(res => res.json())
+
+      
+    // })
+    console.log(data);
     setPokemonData(data);
     // console.log(cardsData);
   };
@@ -70,19 +77,8 @@ function App(props) {
   return (
     <div className="App">
       <Header user={userState.user} handleLogout={handleLogout} />
-      
- 
-       {/* <CardsPage />
-          {cardsData.results && cardsData.results.map((result, idx) =>
-          <CardsPage key={idx} result={result}/>
-          )}  */}
 
-      {/* <Route exact path="/cards" render={ props => 
-          <CardsPage />
-          }/>
-          {cardsData.results && cardsData.results.map((result, idx) =>
-          <CardsPage key={idx} result={result}/>
-          )} */}
+  
 
         <Switch>
         <Route exact path="/" render={ props => 
@@ -90,13 +86,10 @@ function App(props) {
           }/>
           <Route exact path="/cards" render={props =>
           <CardsPage results={pokemonData.results}/>
-        } />
-        {/* <Route exact path="/cardsP" render={props =>
-          <CardsPic results={cardsData.results}/>
-        } /> */}
+          } />
            <Route exact path="/dashboard" render={ props => 
            getUser() ?
-            <DashBoardPage />
+            <DashBoardPage results={pokemonData.results}/>
             :
             <Redirect to='/login' />
           }/>
