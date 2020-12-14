@@ -1,7 +1,7 @@
 import { setToken, getUserFromToken, removeToken } from './tokenService';
 
 
-const BASE_URL = 'https://pokemon-project-3.herokuapp.com/api';
+const BASE_URL = 'https://pokemon-project-3.herokuapp.com';
 
 function signup(user) {
     return fetch(BASE_URL + '/signup', {
