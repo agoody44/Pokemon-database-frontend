@@ -12,3 +12,13 @@
   background-repeat: no-repeat;
   background-size:100% 100vh;
 }
+
+
+#cardsPage {
+  background-image: url(./imgs/pokemonGrass.png);
+  position: relative;
+  border: 2px solid black;
+  padding: 19px;
+  background-repeat: no-repeat;
+  background-size:100% 100vh;
+}

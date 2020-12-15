@@ -20,7 +20,7 @@ export default function DashBoardPage (props) {
                 <li className='cardsLi'key={idx}>
                   { result.name.toLowerCase().split(' ').map (letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ') }
                   <br/>
-                  <button onClick={sayHello}>
+                  <button className='button' onClick={sayHello}>
                     Fav
                   </button>
                 </li>

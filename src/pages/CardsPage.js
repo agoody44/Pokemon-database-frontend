@@ -1,6 +1,10 @@
 // import HearthstoneClasses from './HearthstoneClasses.jpg';
 // import { useState } from 'react'
 import pikachu from './pikachu.gif'
+import bulbasaur from './bulbasaur.gif'
+import squirtle from './squirtle.gif'
+import charmander from './charmander.gif'
+import pokemonBanner from './pngegg.png'
 
 
 export default function CardsPage (props) {
@@ -9,11 +13,19 @@ export default function CardsPage (props) {
 
 
   return (
-    <main className='Page'>
+    <main className='Page' id='cardsPage'>
 
-          <img src={pikachu} height={100} width={100} alt='hs' />
-          <br/>
           <main className='Page'>
+
+          <div>
+
+          <img src={pokemonBanner} alt='hs' />
+          {/* <img src={bulbasaur} height={75} width={75} alt='hs' />
+          <img src={squirtle} height={75} width={75} alt='hs' />
+          <img src={charmander} height={75} width={75} alt='hs' />
+          <img src={pikachu} height={75} width={75} alt='hs' /> */}
+          </div>
+          <br/>
 
             <ul className='cards'>
               
