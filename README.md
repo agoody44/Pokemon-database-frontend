@@ -30,7 +30,7 @@ A simple Pokemon database
 
 ## Getting Started
 
-[Click Here](!) to see the deployed app!
+[Click Here](https://pokemon-project-3-front.herokuapp.com/) to see the deployed app!
 
 [Click Here](https://trello.com/b/A200ltUy/project-3) Trello Board!
 
