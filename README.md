@@ -21,7 +21,7 @@ A simple Pokemon database
 -Morgan
 
 ## Screenshots
-![wireframe1](imgs/Pokemon-homepage.png)
+![wireframe1](imgs/Pokemon-homepage-ss.png)
 ![wireframe2](imgs/CardsPage.png)
 ![wireframe3](imgs/Pokemon-signup-page.png)
 ![wireframe4](imgs/Pokemon-loginpage.png)
@@ -37,3 +37,4 @@ A simple Pokemon database
 ## Future Enchancments
 - Add favorite pokemon 
 - Add pokemon images
+- Add more pokemon info
