@@ -29,14 +29,14 @@ function App(props) {
 
 
   const [pokemonData, setPokemonData] = useState ({
-   count : '',
-   next: "",
-   previous: '',
-   results: [],
-   url: '',
-   sprites: {
-     front_default: ''
-   }
+  count : '',
+  next: "",
+  previous: '',
+  results: [],
+  url: '',
+  sprites: {
+    front_default: ''
+  }
   });
   // const pokemonIds = [1,2,3]
 
