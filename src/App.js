@@ -87,14 +87,14 @@ function App(props) {
           <Route exact path="/cards" render={props =>
           <CardsPage results={pokemonData.results}/>
           } />
-           <Route exact path="/dashboard" render={ props => 
-           getUser() ?
+          <Route exact path="/dashboard" render={ props => 
+          getUser() ?
             <DashBoardPage results={pokemonData.results}/>
             :
             <Redirect to='/login' />
           }/>
           <Route exact path="/signup" render={ props => 
-           <SignUpPage handleSignupOrLogin={handleSignupOrLogin} />
+          <SignUpPage handleSignupOrLogin={handleSignupOrLogin} />
           }/>
           <Route exact path="/login" render={ props => 
             <LoginPage handleSignupOrLogin={handleSignupOrLogin} />

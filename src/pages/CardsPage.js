@@ -1,9 +1,5 @@
 // import HearthstoneClasses from './HearthstoneClasses.jpg';
 // import { useState } from 'react'
-import pikachu from './pikachu.gif'
-import bulbasaur from './bulbasaur.gif'
-import squirtle from './squirtle.gif'
-import charmander from './charmander.gif'
 import pokemonBanner from './pngegg.png'
 
 
@@ -20,43 +16,38 @@ export default function CardsPage (props) {
           <div>
 
           <img src={pokemonBanner} alt='hs' />
-          {/* <img src={bulbasaur} height={75} width={75} alt='hs' />
-          <img src={squirtle} height={75} width={75} alt='hs' />
-          <img src={charmander} height={75} width={75} alt='hs' />
-          <img src={pikachu} height={75} width={75} alt='hs' /> */}
           </div>
           <br/>
 
             <ul className='cards'>
               
                 {props.results && props.results.map((result, idx) => {
-                  // console.log(result.url)
+                  {/* console.log(result.url) */}
                   
                   return (
-
-                   
-              
 
                   <li className='cardsLi'key={idx}>
                     { result.name.toLowerCase().split(' ').map (letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ') }
                     <br/>
+                    {/* <img src="result.url.sprites.front_default" alt="img"/> */}
                   </li>
                   )
                 })
                 }
               </ul>
-               
-               {/* {props.results.url && props.results.url.map((url, idx) => {
+              
+              
+              {/* {props.results.url && props.results.url.map((url, idx) => {
                   console.log(url)
                   return (
                     <ul>
                       <li>
-                            {url.sprites}
+                      <img src="result.url.sprites.front_default" alt="img"/>
                       </li>
                     </ul>
                   )
-               })
-              } */}
+              })
+              }  */}
 
 
           </main>
