@@ -8,7 +8,7 @@ export default function DashBoardPage (props) {
           <img src={pokemonBanner} alt='hs' />
           </div>
 
-            <h1>Pick Favorite Pokemon</h1>
+            <h1>Pick your favorite Pokemon</h1>
 
             <ul className='cards'>
               
