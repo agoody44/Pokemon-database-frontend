@@ -1,7 +1,14 @@
+import pokemonBanner from './pngegg.png'
+
 export default function DashBoardPage (props) {
     return (
-        <main className='Page'>
-            <h1>Pick Fav Pokemon</h1>
+        <main className='Page' id='cardsPage'>
+
+          <div>
+          <img src={pokemonBanner} alt='hs' />
+          </div>
+
+            <h1>Pick Favorite Pokemon</h1>
 
             <ul className='cards'>
               
