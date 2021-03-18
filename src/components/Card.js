@@ -8,7 +8,7 @@ export default function Card({ pokemon }) {
             </div>
             <div className='Card__info'>
             <div className="Card__name">
-                {pokemon.name}
+                {pokemon.name.toLowerCase().split(' ').map (letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ') }
             </div>
             <div className="Card__types">
                 {pokemon.types.map(type =>{
