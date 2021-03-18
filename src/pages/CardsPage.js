@@ -70,6 +70,10 @@ export default function CardsPage (props) {
                         return <Card key={i} pokemon={pokemon} />;
                       })}
                     </div>
+                    <div className="btn">
+                      <button onClick={prev}>Prev</button>
+                      <button onClick={next}>Next</button>
+                  </div>
                 </>
               )}
           </div>
