@@ -1,5 +1,4 @@
-import {getPokemonData} from './services/pokemon-api';
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 
 
@@ -11,7 +10,6 @@ import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import DashBoardPage from './pages/DashBoardPage';
 import CardsPage from './pages/CardsPage';
-// import CardsPic from './pages/CardsPic';
 
 
 import { getUser, logout } from './services/userService';
@@ -26,40 +24,6 @@ import './App.css';
 function App(props) {
 
   const [ userState, setUserState ] = useState({ user: getUser() });
-
-
-  const [pokemonData, setPokemonData] = useState ({
-  count : '',
-  next: "",
-  previous: '',
-  results: [],
-  url: '',
-  sprites: {
-    front_default: ''
-  }
-  });
-  // const pokemonIds = [1,2,3]
-
-
-  async function getAppData() {
-    const data = await getPokemonData();
-    // const data = pokemonIds.map((id) => {
-    //   return fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
-    //   .then(res => res.json())
-
-      
-    // })
-    console.log(data);
-    setPokemonData(data);
-    // console.log(cardsData);
-  };
-
-  useEffect(() => {
-    getAppData();
-    console.log('effect');
-  }, []);
-
-
 
 
   /* helper functions */
@@ -85,11 +49,11 @@ function App(props) {
             <HomePage />
           }/>
           <Route exact path="/cards" render={props =>
-          <CardsPage results={pokemonData.results}/>
+          <CardsPage />
           } />
           <Route exact path="/dashboard" render={ props => 
           getUser() ?
-            <DashBoardPage results={pokemonData.results}/>
+            <DashBoardPage/>
             :
             <Redirect to='/login' />
           }/>

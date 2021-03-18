@@ -1,72 +1,77 @@
-// import HearthstoneClasses from './HearthstoneClasses.jpg';
-// import { useState } from 'react'
+import React, {useState, useEffect} from 'react';
+import { getAllPokemon, getPokemon } from '../services/pokemon-api.js';
 import pokemonBanner from './pngegg.png'
+import Card from '../components/Card';
 
 
 export default function CardsPage (props) {
-  // console.log(props)
+  const [pokemonData, setPokemonData] = useState([]);
+  const [nextUrl, setNextUrl] = useState ('');
+  const [prevUrl, setPrevUrl] = useState('');
+  const [loading, setLoading] = useState(true);
+  const initialUrl = 'https://pokeapi.co/api/v2/pokemon/'
+
+// runs once after component mounts to the page
+  useEffect(() =>{
+    async function fetchData() {
+      let response = await getAllPokemon(initialUrl); 
+      setNextUrl(response.next);
+      setPrevUrl(response.previous);
+      await loadingPokemon(response.results);
+      setLoading(false);
+    }
+    fetchData();
+  }, [])
+
+  const next = async () => {
+    setLoading(true);
+    let data = await getAllPokemon(nextUrl)
+    await loadingPokemon(data.results)
+    setNextUrl(data.next);
+    setPrevUrl(data.previous);
+    setLoading(false);
+  }
+  const prev = async () => {
+    if (!prevUrl) return
+    setLoading(true);
+    let data = await getAllPokemon(prevUrl)
+    await loadingPokemon(data.results)
+    setNextUrl(data.next);
+    setPrevUrl(data.previous);
+    setLoading(false);
+  }
+
+  const loadingPokemon = async(data) => {
+    let _pokemonData = await Promise.all(data.map(async pokemon => {
+      let pokemonRecord = await getPokemon(pokemon.url);
+      return pokemonRecord
+    }))
+
+    setPokemonData(_pokemonData)
+  }
 
 
 
   return (
-    <main className='Page' id='cardsPage'>
-
-          <main className='Page'>
-
-          <div>
-
-          <img src={pokemonBanner} alt='hs' />
+    <div className='Page' id='cardsPage'>
+            <div>
+            <img src={pokemonBanner} alt='hs' />
+            </div>
+            {loading ? (
+              <h1>Loading....</h1> 
+              ) : (
+                <>
+                  <div className="btn">
+                    <button onClick={prev}>Prev</button>
+                    <button onClick={next}>Next</button>
+                  </div>
+                    <div className='grid-container'>
+                      {pokemonData.map((pokemon, i) => {
+                        return <Card key={i} pokemon={pokemon} />;
+                      })}
+                    </div>
+                </>
+              )}
           </div>
-          <br/>
-
-            <ul className='cards'>
-              
-                {props.results && props.results.map((result, idx) => {
-                  {/* console.log(result.url) */}
-                  
-                  return (
-
-                  <li className='cardsLi'key={idx}>
-                    { result.name.toLowerCase().split(' ').map (letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ') }
-                    <br/>
-                    {/* <img src="result.url.sprites.front_default" alt="img"/> */}
-                  </li>
-                  )
-                })
-                }
-              </ul>
-              
-              
-              {/* {props.results.url && props.results.url.map((url, idx) => {
-                  console.log(url)
-                  return (
-                    <ul>
-                      <li>
-                      <img src="result.url.sprites.front_default" alt="img"/>
-                      </li>
-                    </ul>
-                  )
-              })
-              }  */}
-
-
-          </main>
-      </main>
 )}
-
-// {/* 
-//                 {props.url && props.url.map((url, idx) => {
-//                   console.log(url)
-//                   return (
-//                     <li>
-//                           {url.sprites}
-//                     </li>
-//                   )
-
-                  
-//                 })} */}
-
-
-
-// {/* <img src={result?.url?.sprites?.front_default} alt="" /> */}
 

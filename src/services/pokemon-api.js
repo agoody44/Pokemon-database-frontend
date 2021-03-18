@@ -1,13 +1,19 @@
-export function getPokemonData() {
-    return fetch('https://pokeapi.co/api/v2/pokemon?limit=25')
-    .then(res => res.json())
-    
+export async function getAllPokemon(url) {
+    return new Promise((resolve, reject) => {
+        fetch(url)
+        .then(res => res.json())
+        .then(data =>{
+            resolve(data);
+        })
+    })
+} 
+
+export async function getPokemon(url) {
+    return new Promise((resolve, reject) => {
+        fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            resolve(data);
+        })
+    })
 }
-
-
-//     export function getPokemonData() {
-//     return fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
-//     .then(res => res.json())
-    
-
-//     }
