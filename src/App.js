@@ -1,7 +1,5 @@
 import { useState } from 'react'
 
-
-
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
@@ -11,15 +9,11 @@ import SignUpPage from './pages/SignUpPage';
 import DashBoardPage from './pages/DashBoardPage';
 import CardsPage from './pages/CardsPage';
 
-
 import { getUser, logout } from './services/userService';
 
 import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
 
-
 import './App.css';
-
-
 
 function App(props) {
 
@@ -41,9 +35,6 @@ function App(props) {
   return (
     <div className="App">
       <Header user={userState.user} handleLogout={handleLogout} />
-
-  
-
         <Switch>
         <Route exact path="/" render={ props => 
             <HomePage />

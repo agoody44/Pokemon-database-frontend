@@ -49,6 +49,7 @@ export default function CardsPage (props) {
 
     setPokemonData(_pokemonData)
   }
+  // console.log(pokemonData)
 
 
 

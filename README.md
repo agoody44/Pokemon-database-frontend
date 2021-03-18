@@ -36,5 +36,4 @@ A simple Pokemon database
 
 ## Future Enchancments
 - Add favorite pokemon 
-- Add pokemon images
 - Add more pokemon info

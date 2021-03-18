@@ -22,6 +22,7 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #cbcbcb;
 } 
 
 
@@ -39,9 +40,11 @@ ul {
   padding: 20px;
   margin-bottom: 10px;
   text-align: center;
-  width:200px; /* overriding previous values */
-  height:200px;
-  border-radius: 50%; /* here's the trick */
+  border-radius: 20%;
+  background:linear-gradient( #fa0202 0, #e60303 35%, #070707 35%, #000000 69%, #ffffff 69%, #ffffff 100%);
+  width:315px; 
+  height:315px;
+  border-radius: 50%;
 }
 
 
@@ -69,5 +72,4 @@ ul {
   margin: 0 auto;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 10px;
-  background-color: #fefefe;
 }
